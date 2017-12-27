@@ -1,0 +1,119 @@
+<td-layout-nav title="Post Management System" navigationRoute="/">
+  <button md-icon-button td-menu-button tdLayoutToggle>
+    <md-icon>menu</md-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Kahwin-Kahwin</span>
+    <span flex></span>
+    <a md-icon-button mdTooltip="Profile">
+      <md-icon>person</md-icon>
+    </a>
+    <span>Johari Jantan</span>
+  </div>
+
+  <div md-content flex md-scroll-y>
+
+    <div layout="row">
+      <div flex="33" layout="column">
+        <md-card class="md-card-colored" flex>
+          <md-card-content class="text-center">
+            <div class="md-headline">1232</div>
+            <md-icon class="icon tc-indigo-700">
+              assignment
+            </md-icon>
+            <div layout="column">
+              <div class="md-subhead">Posts</div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div flex="33" layout="column">
+        <md-card class="md-card-colored" flex>
+          <md-card-content class="text-center">
+            <div class="md-headline">334</div>
+            <md-icon class="icon tc-indigo-700">
+              assignment
+            </md-icon>
+            <div layout="column">
+              <div class="md-subhead">Vendors</div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div flex="33" layout="column">
+        <md-card class="md-card-colored" flex>
+          <md-card-content class="text-center">
+            <div class="md-headline">33</div>
+            <md-icon class="icon tc-indigo-700">
+              assignment
+            </md-icon>
+            <div layout="column">
+              <div class="md-subhead">Venue</div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout-gt-md="row">
+      <div flex-gt-md="70">
+        <md-card>
+          <md-card-title>Vendors</md-card-title>
+          <md-card-subtitle>List of Vendors</md-card-subtitle>
+          <md-divider></md-divider>
+          <md-list>
+            <ng-template let-vendor let-last="last" ngFor [ngForOf]="vendors$ | async">
+              <md-list-item>
+                <h3 md-line> {{vendor?.name}} </h3>
+                <span flex></span>
+                <span flex="80" layout-gt-xs="row">
+                  <!--<div class="md-caption tc-grey-700" flex-gt-xs="30"> {{ vendor?.address }} </div>-->
+                  <div class="md-caption tc-grey-700" flex-gt-xs="50"> {{ vendor?.phone}} </div>
+                </span>
+                <span>
+                  <!--button-->
+                  <button md-icon-button (click)="viewVendor(Vendor)">
+                    <md-icon>arrow_forward</md-icon>
+                  </button>
+              </span>
+              </md-list-item>
+              <md-divider *ngIf="!last"></md-divider>
+            </ng-template>
+          </md-list>
+        </md-card>
+
+      </div>
+      <div flex-gt-md="30">
+        <md-card>
+          <md-nav-list flex dense>
+            <md-list-item (click)="deactivate()">
+              <md-icon md-list-avatar>gavel</md-icon>
+              <h4 md-line>Deactivate</h4>
+              <p md-line>Deactivate this record</p>
+            </md-list-item>
+            <md-list-item (click)="activate()">
+              <md-icon md-list-avatar>check</md-icon>
+              <h4 md-line>Activate</h4>
+              <p md-line>Activate this record</p>
+            </md-list-item>
+            <md-list-item (click)="activate()">
+              <md-icon md-list-avatar>delete</md-icon>
+              <h4 md-line>Delete</h4>
+              <p md-line>Delete this record</p>
+            </md-list-item>
+          </md-nav-list>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="md-caption">Copyright &copy; 2017 MAMPU. All rights reserved</span>
+      <span flex></span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav>
+
+
+
